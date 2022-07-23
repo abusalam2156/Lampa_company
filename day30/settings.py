@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!zq6rxhe16l&jg1)b^4$mf(ngddfjigm_#ou=h4-f^h#rmsc#v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -127,9 +127,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = 'static/'
 MEDIA_URL='media/'
 MEDIA_ROOT=BASE_DIR.joinpath('media/')
-LOGIN_REDIRECT_URL ='/'
-LOGIN_URL="http://127.0.0.1:8000/users/login"
-
+LOGIN_REDIRECT_URL ='/' 
+LOGIN_URL=LOGIN_REDIRECT_URL+ 'users/login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
 EMAIL_USE_TLS = True 

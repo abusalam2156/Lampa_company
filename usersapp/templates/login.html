@@ -144,7 +144,7 @@
         <form class="form" method="post" id="signin">
              {% csrf_token %} <h1 class="form__title">Login</h1>
          <div class="form__input-group"  >
-               {{mm}} {%if  isgoodname %}
+            {%if  isgoodname %}
                 <input type="text" name="name"id="name"class="form__input" value="{{postedname}}" required autofocus placeholder="username or email">
                 {%else%}
                 

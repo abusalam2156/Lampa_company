@@ -44,7 +44,7 @@
           <a class="navbar-brand" href="{% url 'about'%}">about</a>
         </li>
 
-        {%if iamsuper%}
+        {%if user.is_superuser%}
         <li class="nav-item" id="add">
           <a class="navbar-brand" href="{% url 'add'%}">add</a>
         </li>

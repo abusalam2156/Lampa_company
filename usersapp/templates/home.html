@@ -24,7 +24,7 @@
                 alt="..."
               />
               <div class="card-body">
-                <h5 class="card-title"> {{p.id}}-- {{p.name}}</h5>
+                <h5 class="card-title">  {{p.name}}</h5>
                 <h6  class="card-text"> by {{p.adder}} </h5>
                   <p class="card-text">  {{p.brief}} </p>
                     
@@ -34,7 +34,7 @@
                   it cost {{p.price}}$ USD only
                 <p>posted on  {{p.timeadd|date:"F j, Y"}}</p>  
                 </p>
-                {%if iamsuper%}
+                {%if user.is_superuser%}
                  <a href="{% url 'update_product' p.id%}" class="btn btn-primary">Edit</a>
                 <a href="{% url 'del_product' p.id%}" class="btn btn-danger">delete</a>
                 {%endif%}

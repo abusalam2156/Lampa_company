@@ -10,7 +10,7 @@ def userlogin(request):
              postpass=request.POST.get('password')
              user=authenticate(username=postname,password=postpass)
              if user:     #if is exist in users database 
-                 nxt=request.GET.get('next', '')
+                 nxt=request.GET.get('next', '/')
                  login(request,user)
                  messages.success(request, f'welcome {postname}')
                  return HttpResponseRedirect(nxt)
@@ -28,7 +28,7 @@ def userlogin(request):
        
     else:
        
-         return render(request, 'login.html',{'mm':'llllll'})                        
+         return render(request, 'login.html')                        
 def register(request):
           if (request.method=="POST"):
     

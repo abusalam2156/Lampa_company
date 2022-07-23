@@ -26,7 +26,7 @@
                 alt="..."
               />
               <div class="card-body">
-                <h5 class="card-title"> {{p.id}}-- {{p.name}}</h5>
+                <h5 class="card-title">  {{p.name}}</h5>
                 <h6  class="card-text"> by {{p.adder}} </h5>
                   <p class="card-text">  {{p.brief}} </p>
                     
@@ -38,7 +38,7 @@
                 </p>
              
                 <a href="{% url 'display' p.id%}"class="btn btn-primary">Detalis</a>
-                {%if iamsuper%}
+                {%if user.is_superuser%}
                 <a href="{% url 'update' p.id%}"class="btn btn-primary">Edit</a>
                  <a href="{% url 'delete' p.id%}"class="btn btn-danger">Delete</a>
                {%endif%}
