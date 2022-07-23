@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .img-fluid {
+      width: 66px;
+      height: 46px;
+      clip-path: circle();
+
+    }
+  </style>
+  <title>Lampa</title>
+</head>
+
+<body>
+  {%load crispy_forms_tags%}
+
+  <div class="container">
+    {%block content%}{%for m in messages%}
+    
+    <div class="alert alert-success" style=" padding:5px;"><strong>{{m}}</strong></div>
+   
+     {%endfor%}{%endblock content%}
+
+    <nav class="navbar navbar-expand-lg navbar-collapse navbar-light bg-warning ">
+
+      <img src="/media/lampa.jpg" class="img-fluid">
+      <ul class="navbar-nav ml-auto  flex-row">
+
+        <li class="nav-item active">
+          <a class="navbar-brand" href="{% url 'home'%}">Home <span class="sr-only">(current)</span></a>
+
+        <li class="nav-item" id="search">
+          <a class="navbar-brand" href="{% url 'search'%}">search</a>
+        </li>
+
+        <li class="nav-item" id="about">
+          <a class="navbar-brand" href="{% url 'about'%}">about</a>
+        </li>
+
+        {%if iamsuper%}
+        <li class="nav-item" id="add">
+          <a class="navbar-brand" href="{% url 'add'%}">add</a>
+        </li>
+        <li class="nav-item" id="admin">
+          <a class="navbar-brand" href="{{ HTTP_HOST }}/admin">admin</a>
+        </li>
+        {%endif%}
+        </li>
+
+
+        {%if user.is_authenticated%}
+
+        <li class="nav-item" id="logout">
+          <a class="nav-link btn btn-danger text-white" type="button" href="{% url 'logout'%}"> Sign Out</a>
+        </li>
+        {%else%}
+        <li class="nav-item" id="login">
+          <a class="nav-link btn btn-primary text-white" type="button" href="{% url 'login'%}">Sign In</a>
+        </li>
+
+        <li class="nav-item" id="register">
+          <a class="nav-link btn btn-danger text-white" type="button" href="{% url 'register'%}">Register</a>
+        </li>
+        {%endif%}
+      </ul>
+
+
+    </nav>
+  </div>
+</body>
+
+</html>

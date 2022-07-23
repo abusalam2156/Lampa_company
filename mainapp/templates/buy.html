@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{p.name}}</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+ <br>
+    <div class="card" style="width:40%; margin:0 auto;">
+        <img class="card-img-top" src="{{p.image.url}}" alt="Card image cap">
+        <div style="width:40%; margin:25px auto;">
+            <h4 class="card-title">{{p.name}}</h4>
+            <h5 class="card-title"> by {{p.adder}} posted on  {{p.timeadd|date:"F j, Y"}}</h5>
+            <h6>{{p.brief}}</h6>
+            <h6 class="card-title">  it cost {{p.price}}$ USD only</h6>
+      <div class="cc" >
+
+      <h5 style="color: rgba(0, 0, 0, 0.911) ;"><br>
+     you can buy by contact with us </h5>
+     <h6> mobile :<a href="#">mobilephone</a><br>
+      facebook :<a href="#">facebook</a><br>
+      whatsapp :<a href="#">whatsapp</a><br>
+      instagrarm :<a href="#">instagram</a><br>
+      telegram :<a href="#">telegram</a><br>
+    </h6>
+      </div>
+            
+        </div>
+  
+    </div>
+<br>
+</body>
+</html>

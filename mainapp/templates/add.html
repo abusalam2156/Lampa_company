@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add</title>
+</head>
+
+<body oncontextmenu="return false" class="snippet-body">
+
+  {% include 'navbar.html' %}
+
+  {%load crispy_forms_tags%}
+
+
+  <div class="row">
+    <div class="container">
+      {%block content%}
+
+      <form method="POST" enctype="multipart/form-data" class="card-body">
+        {% csrf_token %}
+       <h2>admin {{user.username}} </h2>
+       <br>
+        {{form|crispy}}
+<br>
+<div >
+<button name="gohome" class="nav-link btn btn-primary text-white" type="submit" style="display: inline;">save</button>
+<button name="addother" class="nav-link btn btn-primary text-white" type="submit"style="display: inline;">save and add other</button>
+</div>
+      </form>
+      {%endblock content%}
+    </div>
+
+</body>
+
+</html>

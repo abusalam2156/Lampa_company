@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{p.name}}</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+ <br> {{c}}
+    <div class="card" style="width:40%; margin:0 auto;">
+        <img class="card-img-top" src="{{p.image.url}}" alt="Card image cap">
+        <div style="width:40%; margin:25px auto;">
+            <h4 class="card-title">{{p.name}}</h4>
+            <h5 class="card-title"> by {{p.adder}} posted on  {{p.timeadd|date:"F j, Y"}}</h5>
+            <h6>{{p.brief}}</h6>
+            <h6 class="card-title">  it cost {{p.price}}$ USD only</h6>
+          
+           <a href="/" class="btn btn-primary">Back</a>
+         
+        </div>
+        <div comments>
+     
+            <div class="list-group">
+              <a class="list-group-item list-group-item-action active " style="text-align:center; color: beige;"><b>Comments</b></a>
+           <br>
+           <form method="POST" enctype="multipart/form-data">  {% csrf_token %}
+                 
+                  {% block content %}
+                 
+                  {% for comment in comments %} 
+                 
+               
+                  <a><b>{{ comment.adder }}</b> said <b>{{ comment.timeadd|timesince }} ago</b></a> 
+                  <p>{{ comment.text }}
+                     <button name="del" value="{{comment.id}}" type="submit" style="width: fit-content;">delete</button>
+                
+                    {%if iamloggedin%}
+                    {%endif%}   
+                  </p>
+                  
+                  {% endfor %} 
+                  {% endblock %}
+                  <br>
+                  <p><input type="text" name="text"class="form__input" style="width: 95%;" >
+                  </p> 
+                 <button name="add" class="nav-link btn btn-primary text-white" type="submit"style="width: fit-content;">add</button>
+                  </form>
+            </div>
+              </div>     
+    </div></body></html>

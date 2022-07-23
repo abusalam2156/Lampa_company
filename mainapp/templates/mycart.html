@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mycart</title>
+</head>
+  <body oncontextmenu="return false" class="snippet-body">
+   
+    {% include 'navbar.html' %}
+<br>
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          {% csrf_token %}      
+          {% for p in products %} 
+          <div class="col-md-6 col-lg-4">
+            <div class="card mx-30">
+              <img
+                src="{{p.image.url}}"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title"> {{p.id}}-- {{p.name}}</h5>
+                <h6  class="card-text"> by {{p.adder}} </h5>
+                  <p class="card-text">  {{p.brief}} </p>
+                    
+                 
+                <h6><a href="{% url 'buy' p.id%}">BUY</a></h6>
+                <p class="card-text">
+                  it cost {{p.price}}$ USD only
+                <p>posted on  {{p.timeadd|date:"F j, Y"}}</p>  
+                </p>
+             
+                <a href="{% url 'display' p.id%}"class="btn btn-primary">Detalis</a>
+                <a href="{% url 'update' p.id%}"class="btn btn-primary">Edit</a>
+                 <a href="{% url 'delete' p.id%}"class="btn btn-danger">Delete</a>
+               
+              </div>
+            </div>
+          </div>
+          {%endfor%}
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript"></script>
+  </body>
+</html>
