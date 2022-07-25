@@ -1,2 +1,4 @@
 # Lampa_company
-django app for lampa company website
+django website app for lampa company.
+take a snip :
+http://lampa1.pythonanywhere.com/
